@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Up Website</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        body {
+            overflow-y: scroll;
+            /* Membuat scroll dari bawah ke atas */
+            scroll-behavior: smooth;
+            /* Efek scrolling yang halus */
+        }
+        
+        #content {
+            height: 2000px;
+            /* Meningkatkan tinggi konten */
+            padding: 20px;
+            /* Padding untuk konten */
+        }
+        /* Gaya untuk judul dan paragraf */
+        
+        h1,
+        p {
+            margin: 10px 0;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #ccc;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="css/font.css">
+</head>
+
+<body>
+    <div id="content">
+        <!-- Your website content goes here -->
+        <!-- Ini hanyalah contoh isi dari website Anda -->
+        <h1>Welcome to My Scroll Up Website</h1>
+        <p>This is some content...</p>
+        <!-- Mengeulaskan banyak paragraf sebagai contoh -->
+        <p>This is some more content...</p>
+        <p>And even more content...</p>
+        <!-- Menambahkan beberapa paragraf lagi untuk menunjukkan scroll -->
+        <p>Keep scrolling up!</p>
+    </div>
+
+    <section class="sky1">
+        <div class="container">
+            <h3 class="text-white mc">1st Sky</h3>
+        </div>
+    </section>
+
+    <section class="night-1 row justify-content-center align-items-center">
+        <div class="col-md-8 text-center">
+            <h3 class="text-white mc" id="typewriter-text"></h3>
+        </div>
+        <div class="mask" style="background-color: hsla(255, 100%, 9%, 0.6)"></div>
+
+    </section>
+    <script>
+        // Memastikan halaman dimuat dengan scroll di posisi paling bawah
+        window.addEventListener("load", function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        // Animasi typewriter
+        var text = "When the Prophet Muhammad SAW was at the Aqsa Mosque, the prophet was lifted to the 7th heaven or Sidratul Muntaha, and the Prophet met several previous prophets at each level of heaven.";
+        var speed = 50; // Kecepatan pengetikan
+
+        function typeWriter(text, speed) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById("typewriter-text").innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi
+        typeWriter(text, speed);
+    </script>
+</body>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+
+</html>

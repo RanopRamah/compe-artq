@@ -1,0 +1,23 @@
+.night-1 {
+    background-image: url('../asset/nig.png');
+    background-size: cover;
+    height: 800px;
+    z-index: 0;
+}
+
+.sky1 {
+    background-image: url('../asset/sky1.png');
+    background-size: cover;
+    height: 1576px;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 2;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #17263f;
+}

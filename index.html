@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font.css">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
+    <style>
+        /* Animasi fade-in */
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Terapkan animasi fade-in pada elemen dengan class .fade-in */
+        
+        .fade-in {
+            animation: fade-in 1s ease;
+        }
+        /* Style placeholder */
+        
+         ::placeholder {
+            color: rgb(255, 255, 255)!important;
+            /* Ganti warna sesuai keinginan */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Halaman Loading -->
+    <div class="loading-page text-center">
+        <h2 class="mc text-black">Rasulullah SAW was heading to the Al Aqsa Mosque</h2>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Halaman Utama -->
+    <div class="content" style="display: none;">
+        <header>
+            <!-- Background image -->
+            <div class="p-5 text-center bg-image" style="background-image: url('asset/gurunkere.png'); height: 800px;">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white align-center">
+                        <!-- Menambahkan class align-center -->
+                        <h1 class="mb-3 mc" id="salam"></h1>
+                        <div class="muncul fade-in" id="enterNameText" style="display: none;">
+                            <h4 class="mb-3 mc" id="enterName">Enter your name</h4>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <div class="input-group mb-3 text-center" id="namaInput">
+                                        <input type="text" class="form-control nama mc text-white" placeholder="Your name">
+                                        <button class="btn btn-primary btn-nama shadow-0" type="button">Go</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Background image -->
+        </header>
+    </div>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+
+    <!-- Load TypeIt library -->
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var typeit = new TypeIt("#salam", {
+                strings: "Assalamualaikum, let me get to know you",
+                speed: 50,
+                waitUntilVisible: true,
+                afterComplete: function() {
+                    document.getElementById("enterNameText").style.display = "block";
+                }
+            }).go();
+
+            document.querySelector('.btn-nama').addEventListener('click', function() {
+                var nama = document.querySelector('.nama').value;
+                document.getElementById("enterName").style.display = "none"; // Hide "Enter your name"
+                document.getElementById("namaInput").style.display = "none"; // Hide input field
+                document.getElementById("salam").textContent = "Hi, " + nama; // Show "Hi, {nama user}"
+                document.getElementById("salam").classList.add("fade-in");
+
+                // Animasi TypeIt untuk pesan "I will take you for a walk"
+                new TypeIt("#salam", {
+                    strings: "I will take you for a walk",
+                    speed: 50,
+                    waitUntilVisible: true,
+                    afterComplete: function() {
+                        document.getElementById("salam").classList.add("fade-in");
+
+                        // Munculkan tombol "letsgo"
+                        var letsgoButton = document.createElement('a'); // Mengubah elemen menjadi <a> agar dapat diarahkan ke halaman lain
+                        letsgoButton.textContent = "Let's Go";
+                        letsgoButton.href = "history.html"; // Mengarahkan tombol ke history.html
+                        letsgoButton.classList.add('btn', 'btn-warning', 'btn-lg', 'mc',
+                            'mt-3', 'fade-in'); // Mengubah warna menjadi warning
+                        document.getElementById("enterNameText").appendChild(letsgoButton);
+                    }
+                }).go();
+            });
+        });
+
+        // Setelah halaman utama selesai dimuat, sembunyikan halaman loading dan tampilkan halaman utama
+        setTimeout(function() {
+            var loadingPage = document.querySelector('.loading-page');
+            var content = document.querySelector('.content');
+
+            loadingPage.style.display = 'none';
+            content.style.display = 'block';
+        }, 5000); // Ubah angka 5000 menjadi jumlah milidetik yang diinginkan.
+    </script>
+</body>
+
+</html>

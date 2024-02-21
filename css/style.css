@@ -1,0 +1,74 @@
+ *::-webkit-scrollbar {
+     display: none;
+ }
+ /* Styling untuk halaman loading */
+ 
+ .loading-page {
+     padding-top: 300px;
+     width: 100%;
+     height: 100vh;
+     background-image: url('../asset/ehfb.png');
+     background-size: cover;
+     background-position-y: 800px;
+ }
+ 
+ .loading-bar {
+     padding-top: 10px;
+     padding-bottom: 48px;
+     padding-right: 10px;
+     padding-left: 10px;
+     width: 400px;
+     height: 20px;
+     background-color: #f0f0f000;
+     border: 3px solid black;
+     overflow: hidden;
+     margin: 50px auto;
+     margin-top: 30px !important;
+ }
+ 
+ .loading-progress {
+     width: 0%;
+     height: 40px;
+     background-color: black;
+     animation: progress 5s linear;
+     /* Hapus "infinite" untuk menghentikan perulangan animasi */
+ }
+ 
+ @keyframes progress {
+     0% {
+         width: 0%;
+     }
+     100% {
+         width: 100%;
+     }
+ }
+ /* Styling untuk halaman utama */
+ 
+ .content {
+     display: none;
+     /* Defaultnya disembunyikan */
+ }
+ /* Content */
+ 
+ .nama {
+     /* width: 30%; */
+     padding-left: 15px !important;
+     background-color: rgba(255, 162, 69, 0.504) !important;
+     border: none !important;
+ }
+ 
+ .nama:focus {
+     outline: none !important;
+     box-shadow: none !important;
+ }
+ 
+ .btn-nama {
+     background: rgba(255, 162, 69, 0.941) !important;
+     color: white !important;
+     text-transform: capitalize !important;
+ }
+ 
+ .jawa {
+     background-color: rgb(204, 78, 36) !important;
+     text-transform: none !important;
+ }

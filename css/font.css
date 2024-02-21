@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Minecraft;
+    src: url('../font/Minecraft.ttf');
+}
+
+.mc {
+    font-family: Minecraft !important;
+}
+
+.jawa {
+    font-family: Minecraft !important;
+}
+
+.btn-nama {}
