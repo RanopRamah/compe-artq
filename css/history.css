@@ -12,6 +12,23 @@
     margin-bottom: -100px;
     position: relative;
     z-index: 2;
+    padding-top: 350px;
+}
+
+.sky2 {
+    padding-top: 200px;
+    background-image: url('../asset/sky2.png');
+    background-size: cover;
+    height: 1450px;
+    position: relative;
+}
+
+.sky3 {
+    padding-top: 200px;
+    background-image: url('../asset/sky3.png');
+    background-size: cover;
+    height: 1450px;
+    position: relative;
 }
 
 *::-webkit-scrollbar {
@@ -20,4 +37,5 @@
 
 body {
     background-color: #17263f;
+    overflow-x: hidden;
 }

@@ -41,6 +41,14 @@
             padding: 10px 0;
             text-align: center;
         }
+        /* Style tambahan */
+        
+        .additional-text {
+            opacity: 0;
+            /* Teks tambahan disembunyikan secara default */
+            transition: opacity 1s ease-in-out;
+            /* Efek transisi untuk muncul */
+        }
     </style>
 
     <!-- Font Awesome -->
@@ -66,9 +74,21 @@
         <p>Keep scrolling up!</p>
     </div>
 
+    <section class="sky3"></section>
+
+    <section class="sky2">
+        <div class="container">
+            <div class="row d-flex justify-content-end">
+                <h3 class="text-white mc scd text-end">2nd Sky</h3>
+                <div id="sky2-text-container" class="mc text-white fs-3 text-end"></div>
+            </div>
+        </div>
+    </section>
+
     <section class="sky1">
         <div class="container">
-            <h3 class="text-white mc">1st Sky</h3>
+            <h3 class="text-white mc frt">1st Sky</h3>
+            <div id="additional-text-container" class="mc text-white fs-3"></div>
         </div>
     </section>
 
@@ -85,15 +105,15 @@
             window.scrollTo(0, document.body.scrollHeight);
         });
 
-        // Animasi typewriter
-        var text = "When the Prophet Muhammad SAW was at the Aqsa Mosque, the prophet was lifted to the 7th heaven or Sidratul Muntaha, and the Prophet met several previous prophets at each level of heaven.";
-        var speed = 50; // Kecepatan pengetikan
+        // Animasi typewriter untuk teks utama
+        var mainText = "When the Prophet Muhammad SAW was at the Aqsa Mosque, the prophet was lifted to the 7th heaven or Sidratul Muntaha, and the Prophet met several previous prophets at each level of heaven.";
+        var mainSpeed = 50; // Kecepatan pengetikan
 
-        function typeWriter(text, speed) {
+        function typeWriter(text, speed, elementId) {
             var i = 0;
             var interval = setInterval(function() {
                 if (i < text.length) {
-                    document.getElementById("typewriter-text").innerHTML += text.charAt(i);
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
                     i++;
                 } else {
                     clearInterval(interval);
@@ -101,8 +121,69 @@
             }, speed);
         }
 
-        // Panggil fungsi untuk memulai animasi
-        typeWriter(text, speed);
+        // Panggil fungsi untuk memulai animasi teks utama
+        typeWriter(mainText, mainSpeed, 'typewriter-text');
+
+        // Animasi typewriter untuk teks tambahan
+        var additionalText = "In the first sky,\n Prophet Muhammad SAW met Prophet Adam AS";
+        var additionalSpeed = 50;
+
+        function additionalTypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky1 = document.querySelector('.frt');
+            var rect = sky1.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var additionalTextContainer = document.getElementById('additional-text-container');
+                additionalTextContainer.classList.add('additional-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                additionalTypeWriter(additionalText, additionalSpeed, 'additional-text-container');
+            }
+            // Animasi typewriter untuk teks tambahan
+
+        });
+        var sky2Text = "In the second sky,\n Prophet Muhammad SAW met Prophet Isa AS and Prophet Yahya";
+        var sky2Speed = 50;
+
+        function sky2TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky2 = document.querySelector('.scd');
+            var rect = sky2.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky2TextContainer = document.getElementById('sky2-text-container');
+                sky2TextContainer.classList.add('sky2-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky2TypeWriter(sky2Text, sky2Speed, 'sky2-text-container');
+            }
+
+
+
+        });
     </script>
 </body>
 <!-- MDB -->
