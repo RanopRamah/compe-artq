@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll Up Website</title>
+    <title>History of Isra Mi'raj</title>
     <style>
         body,
         html {
@@ -74,7 +74,14 @@
         <p>Keep scrolling up!</p>
     </div>
 
-    <section class="sky3"></section>
+    <section class="sky3">
+        <div class="container">
+            <div class="row d-flex justify-content-start">
+                <h3 class="text-white mc trd text-start">3nd Sky</h3>
+                <div id="sky3-text-container" class="mc text-white fs-3 text-start"></div>
+            </div>
+        </div>
+    </section>
 
     <section class="sky2">
         <div class="container">
@@ -179,6 +186,37 @@
                 sky2TextContainer.classList.add('sky2-text-visible');
                 window.removeEventListener('scroll', arguments.callee);
                 sky2TypeWriter(sky2Text, sky2Speed, 'sky2-text-container');
+            }
+
+
+
+        });
+
+        var sky3Text = "In the third sky,\n Prophet Muhammad SAW met Prophet Yusuf AS";
+        var sky3Speed = 50;
+
+        function sky3TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky3 = document.querySelector('.trd');
+            var rect = sky3.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky3TextContainer = document.getElementById('sky3-text-container');
+                sky3TextContainer.classList.add('sky3-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky2TypeWriter(sky3Text, sky3Speed, 'sky3-text-container');
             }
 
 
