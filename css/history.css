@@ -31,6 +31,38 @@
     position: relative;
 }
 
+.sky4 {
+    padding-top: 200px;
+    background-image: url('../asset/sky4.png');
+    background-size: cover;
+    height: 1450px;
+    position: relative;
+}
+
+.sky5 {
+    padding-top: 130px;
+    background-image: url('../asset/sky5.png');
+    background-size: cover;
+    height: 1100px;
+    position: relative;
+}
+
+.sky6 {
+    padding-top: 200px;
+    background-image: url('../asset/sky6.png');
+    background-size: cover;
+    height: 1150px;
+    position: relative;
+}
+
+.sky7 {
+    padding-top: 200px;
+    background-image: url('../asset/sky7.png');
+    background-size: cover;
+    height: 1050px;
+    position: relative;
+}
+
 *::-webkit-scrollbar {
     display: none;
 }

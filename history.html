@@ -62,22 +62,44 @@
 </head>
 
 <body>
-    <div id="content">
-        <!-- Your website content goes here -->
-        <!-- Ini hanyalah contoh isi dari website Anda -->
-        <h1>Welcome to My Scroll Up Website</h1>
-        <p>This is some content...</p>
-        <!-- Mengeulaskan banyak paragraf sebagai contoh -->
-        <p>This is some more content...</p>
-        <p>And even more content...</p>
-        <!-- Menambahkan beberapa paragraf lagi untuk menunjukkan scroll -->
-        <p>Keep scrolling up!</p>
-    </div>
+
+    <section class="sky7">
+        <div class="container">
+            <div class="row d-flex justify-content-start">
+                <h3 class="text-white mc svn text-start">7th Sky</h3>
+                <div id="sky7-text-container" class="mc text-white fs-3 text-start"></div>
+            </div>
+        </div>
+    </section>
+    <section class="sky6">
+        <div class="container">
+            <div class="row d-flex justify-content-end">
+                <h3 class="text-white mc six text-end">6th Sky</h3>
+                <div id="sky6-text-container" class="mc text-white fs-3 text-end"></div>
+            </div>
+        </div>
+    </section>
+    <section class="sky5">
+        <div class="container">
+            <div class="row d-flex justify-content-start">
+                <h3 class="text-white mc fift text-start">5th Sky</h3>
+                <div id="sky5-text-container" class="mc text-white fs-3 text-start"></div>
+            </div>
+        </div>
+    </section>
+    <section class="sky4">
+        <div class="container">
+            <div class="row d-flex justify-content-end">
+                <h3 class="text-white mc frth text-end">4th Sky</h3>
+                <div id="sky4-text-container" class="mc text-white fs-3 text-end"></div>
+            </div>
+        </div>
+    </section>
 
     <section class="sky3">
         <div class="container">
             <div class="row d-flex justify-content-start">
-                <h3 class="text-white mc trd text-start">3nd Sky</h3>
+                <h3 class="text-white mc trd text-start">3rd Sky</h3>
                 <div id="sky3-text-container" class="mc text-white fs-3 text-start"></div>
             </div>
         </div>
@@ -103,9 +125,9 @@
         <div class="col-md-8 text-center">
             <h3 class="text-white mc" id="typewriter-text"></h3>
         </div>
-        <div class="mask" style="background-color: hsla(255, 100%, 9%, 0.6)"></div>
 
-    </section>
+
+    </section>p
     <script>
         // Memastikan halaman dimuat dengan scroll di posisi paling bawah
         window.addEventListener("load", function() {
@@ -216,7 +238,69 @@
                 var sky3TextContainer = document.getElementById('sky3-text-container');
                 sky3TextContainer.classList.add('sky3-text-visible');
                 window.removeEventListener('scroll', arguments.callee);
-                sky2TypeWriter(sky3Text, sky3Speed, 'sky3-text-container');
+                sky3TypeWriter(sky3Text, sky3Speed, 'sky3-text-container');
+            }
+
+
+
+        });
+
+        var sky4Text = "In the fourth sky,\n Prophet Muhammad SAW met Prophet Idris AS";
+        var sky4Speed = 50;
+
+        function sky4TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky4 = document.querySelector('.frth');
+            var rect = sky4.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky4TextContainer = document.getElementById('sky4-text-container');
+                sky4TextContainer.classList.add('sky4-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky4TypeWriter(sky4Text, sky4Speed, 'sky4-text-container');
+            }
+
+
+
+        });
+
+        var sky5Text = "In the fifth sky,\n Prophet Muhammad SAW met Prophet Harun AS";
+        var sky5Speed = 50;
+
+        function sky5TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky5 = document.querySelector('.fift');
+            var rect = sky5.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky5TextContainer = document.getElementById('sky5-text-container');
+                sky5TextContainer.classList.add('sky5-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky5TypeWriter(sky5Text, sky5Speed, 'sky5-text-container');
             }
 
 
