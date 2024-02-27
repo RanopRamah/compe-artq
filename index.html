@@ -64,7 +64,7 @@
                                 <div class="col-md-6 text-center">
                                     <div class="input-group mb-3 text-center" id="namaInput">
                                         <input type="text" class="form-control nama mc text-white" placeholder="Your name">
-                                        <button class="btn btn-primary btn-nama shadow-0" type="button">Go</button>
+                                        <button class="btn btn-primary btn-nama shadow-0" type="button" id="goButton">Go</button>
                                     </div>
                                 </div>
                             </div>
@@ -109,12 +109,16 @@
                         document.getElementById("salam").classList.add("fade-in");
 
                         // Munculkan tombol "letsgo"
-                        var letsgoButton = document.createElement('a'); // Mengubah elemen menjadi <a> agar dapat diarahkan ke halaman lain
+                        var letsgoButton = document.createElement('button');
                         letsgoButton.textContent = "Let's Go";
-                        letsgoButton.href = "history.html"; // Mengarahkan tombol ke history.html
-                        letsgoButton.classList.add('btn', 'btn-warning', 'btn-lg', 'mc',
-                            'mt-3', 'fade-in'); // Mengubah warna menjadi warning
+                        letsgoButton.classList.add('btn', 'btn-warning', 'btn-lg', 'mc', 'mt-3', 'fade-in');
                         document.getElementById("enterNameText").appendChild(letsgoButton);
+
+                        // Tambahkan event listener untuk tombol "Let's Go"
+                        letsgoButton.addEventListener('click', function() {
+                            var myModal = new mdb.Modal(document.getElementById('exampleModal'));
+                            myModal.show();
+                        });
                     }
                 }).go();
             });
@@ -129,6 +133,22 @@
             content.style.display = 'block';
         }, 5000); // Ubah angka 5000 menjadi jumlah milidetik yang diinginkan.
     </script>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mc text-danger text-center" id="exampleModalLabel">Attention</h5>
+                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mc text-warning fs-4 text-center">To maximize your trip, refresh again when the website is open</div>
+                <div class="modal-footer d-flex justify-content-center">
+
+                    <a href="history.html" class="btn btn-warning mc" data-mdb-ripple-init>Lets go!</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

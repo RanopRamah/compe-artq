@@ -49,6 +49,20 @@
             transition: opacity 1s ease-in-out;
             /* Efek transisi untuk muncul */
         }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 2s ease-in-out forwards;
+        }
+        
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 
     <!-- Font Awesome -->
@@ -62,6 +76,37 @@
 </head>
 
 <body>
+    <audio controls autoplay loop style="display: none;">
+        <source src="asset/gold.ogg" type="audio/ogg"> 
+        <source src="asset/gold.wav" type="audio/wav">
+        <source src="gold.mp3" type="audio/mpeg">
+
+      </audio>
+
+
+    <section class="thank">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-6 thx ">
+                    <div id="thnk-text-container" class="mc text-white fs-1 text-center"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="sidra">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <h3 class="mc text-white sid text-center">Sidratul Muntaha</h3>
+                <div class="col-6">
+                    <div id="sidr-text-container" class="mc text-white fs-3 text-center"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section class="sky7">
         <div class="container">
@@ -123,11 +168,15 @@
 
     <section class="night-1 row justify-content-center align-items-center">
         <div class="col-md-8 text-center">
-            <h3 class="text-white mc" id="typewriter-text"></h3>
+            <div id="hello-text" class="mc text-white fs-3 text-center fade-in">Scroll up to reach 7th sky</div>
+
+            <h3 class="text-white mc mt-5" id="typewriter-text"></h3>
         </div>
 
 
-    </section>p
+    </section>
+
+
     <script>
         // Memastikan halaman dimuat dengan scroll di posisi paling bawah
         window.addEventListener("load", function() {
@@ -168,6 +217,19 @@
                 }
             }, speed);
         }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat teks utama selesai muncul
+        window.addEventListener('load', function() {
+            var mainTextLength = mainText.length;
+            var mainTextContainer = document.getElementById('typewriter-text');
+            var helloTextContainer = document.getElementById('hello-text');
+
+            // Fungsi untuk menampilkan teks "halo" setelah teks utama selesai muncul
+            setTimeout(function() {
+                helloTextContainer.classList.add('fade-in');
+            }, mainTextLength * mainSpeed);
+        });
+
 
         // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
         window.addEventListener('scroll', function() {
@@ -306,7 +368,135 @@
 
 
         });
+
+
+
+        var sky6Text = "In the sixth sky,\n Prophet Muhammad SAW met Prophet Musa AS";
+        var sky6Speed = 50;
+
+        function sky6TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky6 = document.querySelector('.six');
+            var rect = sky6.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky6TextContainer = document.getElementById('sky6-text-container');
+                sky6TextContainer.classList.add('sky6-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky6TypeWriter(sky6Text, sky6Speed, 'sky6-text-container');
+            }
+
+
+
+        });
+
+        var sky7Text = "In the seventh sky,\n Prophet Muhammad SAW met Prophet Ibrahim AS";
+        var sky7Speed = 50;
+
+        function sky7TypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sky7 = document.querySelector('.svn');
+            var rect = sky7.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sky7TextContainer = document.getElementById('sky7-text-container');
+                sky7TextContainer.classList.add('sky7-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sky7TypeWriter(sky7Text, sky7Speed, 'sky7-text-container');
+            }
+
+
+
+        });
+
+        var sidrText = "This is where the Prophet Muhammad was given the command to pray by Allah SWT";
+        var sidrSpeed = 50;
+
+        function sidrTypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var sidr = document.querySelector('.sid');
+            var rect = sidr.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var sidrTextContainer = document.getElementById('sidr-text-container');
+                sidrTextContainer.classList.add('sidr-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                sidrTypeWriter(sidrText, sidrSpeed, 'sidr-text-container');
+            }
+
+
+
+        });
+
+        var thnkText = "Thank you for being interested in my website.This website was created by Raffi Nauval Taqy :)";
+        var thnkSpeed = 50;
+
+        function thnkTypeWriter(text, speed, elementId) {
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i < text.length) {
+                    document.getElementById(elementId).innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Panggil fungsi untuk memulai animasi tambahan saat mencapai bagian sky1
+        window.addEventListener('scroll', function() {
+            var thnk = document.querySelector('.thx');
+            var rect = thnk.getBoundingClientRect();
+
+            if (rect.top <= window.innerHeight && rect.top >= 0) {
+                var thnkTextContainer = document.getElementById('thnk-text-container');
+                thnkTextContainer.classList.add('thnk-text-visible');
+                window.removeEventListener('scroll', arguments.callee);
+                thnkTypeWriter(thnkText, thnkSpeed, 'thnk-text-container');
+            }
+
+
+
+        });
     </script>
+
+
 </body>
 <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>

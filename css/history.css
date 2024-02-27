@@ -48,7 +48,7 @@
 }
 
 .sky6 {
-    padding-top: 200px;
+    padding-top: 120px;
     background-image: url('../asset/sky6.png');
     background-size: cover;
     height: 1150px;
@@ -56,10 +56,28 @@
 }
 
 .sky7 {
-    padding-top: 200px;
+    padding-top: 150px;
     background-image: url('../asset/sky7.png');
     background-size: cover;
     height: 1050px;
+    position: relative;
+}
+
+.sidra {
+    padding-top: 100px;
+    background-image: url('../asset/sidra.png');
+    background-size: cover;
+    height: 1050px;
+    position: relative;
+}
+
+.thank {
+    z-index: 1;
+    margin-bottom: -120px;
+    padding-top: 300px;
+    background-image: url('../asset/thank.png');
+    background-size: cover;
+    height: 1250px;
     position: relative;
 }
 
