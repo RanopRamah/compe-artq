@@ -73,17 +73,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/history.css">
     <link rel="stylesheet" href="css/font.css">
+    <script>
+        window.onload = function() {
+            var context = new AudioContext();
+        }
+    </script>
 </head>
 
 <body>
-    <audio controls autoplay loop>
+    <audio id="myAudio" preload="auto">
         <source src="asset/gold.ogg" type="audio/ogg"> 
         <source src="asset/gold.wav" type="audio/wav">
         <source src="gold.mp3" type="audio/mpeg">
-
-      </audio>
-
-
+    </audio>
     <section class="thank">
         <div class="container">
             <div class="row d-flex justify-content-center">
@@ -171,6 +173,7 @@
             <div id="hello-text" class="mc text-white fs-3 text-center fade-in">Scroll up to reach 7th sky</div>
 
             <h3 class="text-white mc mt-5" id="typewriter-text"></h3>
+            <button id="playButton" class="mc text-white btn btn-primary" style="text-transform: none !important; ">Play Music <span class="fw-bold">(recommended)</span></button>
         </div>
 
 
@@ -178,6 +181,21 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('myAudio');
+            var playButton = document.getElementById('playButton');
+
+            playButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    playButton.textContent = 'Pause Music';
+                } else {
+                    audio.pause();
+                    playButton.textContent = 'Play Music';
+                }
+            });
+        });
+
         // Memastikan halaman dimuat dengan scroll di posisi paling bawah
         window.addEventListener("load", function() {
             window.scrollTo(0, document.body.scrollHeight);
